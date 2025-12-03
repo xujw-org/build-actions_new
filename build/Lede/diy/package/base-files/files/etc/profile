@@ -29,13 +29,13 @@ local TEMP=$(sensors 2>/dev/null | grep 'Core 0' | awk '{print $3}')
 local Sys_time=$(awk '{a=$1/86400;b=($1%86400)/3600;c=($1%3600)/60;d=($1%60)} {printf("%d 天 %d 小时 %d 分钟 %d 秒\n",a,b,c,d)}' /proc/uptime)
 cat <<EOF
 $(echo -e "${Yellow}$(uname -n)/${TARGET_PROFILE}")
-$(echo -e "${Red}CPU    Model:	${CPU_Model}${White}")
-$(echo -e "${Blue}Mem    Total:	${Mem_sum}${White}")
-$(echo -e "${Green}TARGET  Info:	${DISTRIB_ARCH}${White}")
-FIRWare  Ver:	$(uname -rs)$([ -n "${TEMP}" ] && echo -e "${TEMP}")
+$(echo -e "${Red}CPU    Model:	${CPU_Model}${White}")
+$(echo -e "${Blue}Mem    Total:	${Mem_sum}${White}")
+$(echo -e "${Green}TARGET  Info:	${DISTRIB_ARCH}${White}")
+FIRWare  Ver:	$(uname -rs)$([ -n "${TEMP}" ] && echo -e "${TEMP}")
 $(echo -e "${Red}IPv4 Address:	${IP_Address}${White}")
 Overlay SIZE:	${Overlay_Available} / ${Tmp_Available}
-$(echo -e "${Red}Run     Time:	${Sys_time}${White}")
+$(echo -e "${Red}Run     Time:	${Sys_time}${White}")
 EOF
 }
 
