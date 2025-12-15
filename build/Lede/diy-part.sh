@@ -10,6 +10,8 @@ export Ipv4_ipaddr="10.1.1.1"            # 修改openwrt后台地址(填0为关�
 export Netmask_netm="255.255.255.0"         # IPv4 子网掩码（默认：255.255.255.0）(填0为不作修改)
 export Op_name="OpenWrt"                # 修改主机名称为OpenWrt-123(填0为不作修改)
 
+sed -i 's/192.168.1.1/$Ipv4_ipaddr/g' package/base-files/luci/bin/config_generate
+
 # 内核和系统分区大小(不是每个机型都可用)
 export Kernel_partition_size="0"            # 内核分区大小,每个机型默认值不一样 (填写您想要的数值,默认一般16,数值以MB计算，填0为不作修改),如果你不懂就填0
 export Rootfs_partition_size="0"            # 系统分区大小,每个机型默认值不一样 (填写您想要的数值,默认一般300左右,数值以MB计算，填0为不作修改),如果你不懂就填0
